@@ -7,7 +7,16 @@ export default function app() {
     choices: ["JavaScript framework'ü", 'JavaScript kütüphanesi'],
     answer: 'JavaScript kütüphanesi.',
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
+    isFlip: false 
   })
+
+  function handleCardClick() {
+      setFlashCard ({
+          ...flashCard ,
+        isFlip:!flashCard.isFlip,
+      });
+  }
+  
 
   /* Challenge: 
 
@@ -27,10 +36,7 @@ export default function app() {
         <h1> React Çalışma Arkadaşı </h1>
       </header>
 
-      {/*-------Aşağıdaki div'i düzenleyin------------*/}
-
-      <div className='flash-card'>
-        {/*-------Yukarıdaki div'i düzenleyin------------*/}
+    <div className={`flash-card ${flashCard.isFlip ? `flipped` : ""} `} onClick={handleCardClick} >
 
         <div className='flash-card-inner'>
           <div className='flash-card-front'>
